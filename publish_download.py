@@ -74,7 +74,9 @@ def main():
 
 Download **{setup}** to install, or **{portable}** for a portable copy. Python and Node are not required. Existing installed copies can update through Settings → Updates; quit Seneca before a manual installation. Saved Windows-protected keys, connections and study data remain outside the install directory.
 
-This update adds a course home with persistent notes, learning preferences, glossary, pinned answers, checkpoints, short practice, exam study blocks, rubric checklists, local text/drawing scratchpads, revision exports and reviewed study packs. Subjects/topics can be deleted with Undo while linked material is retained unfiled. Weekly summaries use dated activity rather than invented mastery. Local study search, Ctrl+K actions, reviewed document drop, Quiet Study, reminder quiet hours and text sizing reduce day-to-day friction.
+This patch simplifies the main menu to Continue studying, My courses, Ask Seneca and Settings. Settings has three pages: Companion, AI & Voice, and Privacy & Data. Movement controls are collapsed by default. Backups are under Privacy & Data; updates, diagnostics and reports are under Help & About. Course imports/exports are grouped under Course actions, and weekly summaries stay in Today. Continue restores the last course/conversation destination; Ctrl+K remains available and Ctrl+Comma opens Settings directly. Existing study work, connections and preferences are preserved.
+
+The existing student workspace includes a course home with persistent notes, learning preferences, glossary, pinned answers, checkpoints, short practice, exam study blocks, rubric checklists, local text/drawing scratchpads, revision exports and reviewed study packs. Subjects/topics can be deleted with Undo while linked material is retained unfiled. Weekly summaries use dated activity rather than invented mastery. Local study search, Ctrl+K actions, reviewed document drop, Quiet Study, reminder quiet hours and text sizing reduce day-to-day friction.
 
 Course videos use free public YouTube search without mandatory API keys or AI credits, selected-link checks, official embedded/browser playback and saved Mark watched / Mark unwatched. YouTube may block requests or change page layouts; browser search and manual links remain available. Availability and search ranking do not guarantee educational accuracy; links are never invented as a fallback.
 
@@ -86,7 +88,7 @@ Problem reports remain local and sanitized until explicitly reviewed. Opening a 
 
 The avatar is 20% smaller with softer ivory/gold shading, solar teleport effects and bottom-taskbar perching. Roguepunk headings remain; buttons use Oxanium. Gentle sounds default on for new profiles, with remembered mute and temporary Quiet Study muting. His original two-legged, armless model and Sebastian Canales artwork remain intact.
 
-Automated checks cover the actual Windows Server 2022 executable, native course workflows, encrypted backup/profile reload, installer upgrade from 0.9.0, relaunch/reinstall and uninstall preservation. Physical Windows 11 DPI/taskbar behavior, actual cross-app shortcuts, complete interactive idle update/restart, live audio/model quality and changing YouTube availability remain hands-on acceptance items.
+Automated checks cover the actual Windows Server 2022 executable, native course workflows, encrypted backup/profile reload, installer upgrade from 0.10.0, relaunch/reinstall and uninstall preservation. Physical Windows 11 DPI/taskbar behavior, actual cross-app shortcuts, complete interactive idle update/restart, live audio/model quality and changing YouTube availability remain hands-on acceptance items.
 
 **Unsigned prototype:** Windows may show a publisher/reputation warning. SHA256SUMS.txt and build-info.json document download integrity and build provenance.
 

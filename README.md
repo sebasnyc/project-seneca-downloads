@@ -6,7 +6,9 @@ Seneca is my desktop study companion: an ivory-and-gold droid with an ancient-fu
 
 Under **Assets**, choose **Setup.exe** to install, or the complete **Portable.zip** for a portable copy. No Python or Node installation is needed. Builds are unsigned prototypes, so Windows may show a publisher/reputation warning.
 
-Installed copies from 0.7.2 onward can check, download and install verified updates from this public repo while idle. Your Windows-protected connections, keys, chat, drafts and settings stay on your PC, outside the install directory. Settings → Updates provides the controls. Quit older copies before updating manually; portable copies require manual replacement.
+Installed copies from 0.7.2 onward can check, download and install verified updates from this public repo while idle. Your Windows-protected connections, keys, chat, drafts and settings stay on your PC, outside the install directory. Help & About → Updates provides the controls. Quit older copies before updating manually; portable copies require manual replacement.
+
+Version 0.10.1 simplifies the menu into four daily actions, with grouped preferences and a separate Help & About panel. Continue studying returns to the last course or conversation. Movement controls and course import/export actions are tucked away until needed.
 
 Version 0.10 brings a course home with notes, glossary, pinned answers, learning preferences and checkpoints; exam plans, rubrics and text/drawing scratchpads; revision/shared study packs; subject/topic deletion with Undo; weekly activity summaries; local search and Ctrl+K actions; Quiet Study, reminder quiet hours and text sizing. Portable backups now default to password encryption and still exclude saved connections/keys.
 
