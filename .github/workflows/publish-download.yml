@@ -1,0 +1,29 @@
+name: Publish verified Seneca download
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Verified stable version, for example 0.7.2'
+        required: true
+      archive_url:
+        description: 'Temporary HTTPS URL for the verified binary-only build archive'
+        required: true
+      archive_sha256:
+        description: 'SHA-256 from the successful build artifact metadata'
+        required: true
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      SENECA_VERSION: ${{ inputs.version }}
+      SENECA_ARCHIVE_URL: ${{ inputs.archive_url }}
+      SENECA_ARCHIVE_SHA: ${{ inputs.archive_sha256 }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify archive and publish completed release
+        run: python publish_download.py

@@ -1,0 +1,2 @@
+Required Notice: Copyright 2026 Sebastian Canales (https://github.com/sebasnyc)
+Required Notice: Anyone who uses Seneca's code, art, animations or any of its other assets must credit the Seneca project (https://github.com/sebasnyc/project-seneca). Seneca's original art is by Sebastian Canales, who holds the rights to that artwork. Parts made by others keep their own licences, listed in THIRD_PARTY_LICENSES.
