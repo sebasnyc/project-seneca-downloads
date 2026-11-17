@@ -8,6 +8,10 @@ Under **Assets**, choose **Setup.exe** to install, or the complete **Portable.zi
 
 Installed copies from 0.7.2 onward can check, download and install verified updates from this public repo while idle. Your Windows-protected connections, keys, chat, drafts and settings stay on your PC, outside the install directory. Help & About → Updates provides the controls. Quit older copies before updating manually; portable copies require manual replacement.
 
+Version 0.11 adds a local second brain: linked notes/backlinks, tags, selected source associations, original/recent versions, separate tutor interpretations, topic maps, visual boards, JSON Canvas/Markdown interchange and a dated learning timeline. Note-specific tutor conversations keep other drafts saved and require explicit review before cloud sharing.
+
+School day adds manual/local-file timetables, after-class check-ins, shared assignment checklist/board/calendar views and reviewed catch-up plans that avoid classes while keeping actual deadlines intact. Calendar imports cover a bounded 16-week range and report unsupported events. Personal touches adds restrained accents, saved resting poses and optional effort milestones. New study collections and unfinished drafts stay in the protected profile and password backups. No paid API is needed for local organization/planning.
+
 Version 0.10.1 simplifies the menu into four daily actions, with grouped preferences and a separate Help & About panel. Continue studying returns to the last course or conversation. Movement controls and course import/export actions are tucked away until needed.
 
 Version 0.10 brings a course home with notes, glossary, pinned answers, learning preferences and checkpoints; exam plans, rubrics and text/drawing scratchpads; revision/shared study packs; subject/topic deletion with Undo; weekly activity summaries; local search and Ctrl+K actions; Quiet Study, reminder quiet hours and text sizing. Portable backups now default to password encryption and still exclude saved connections/keys.

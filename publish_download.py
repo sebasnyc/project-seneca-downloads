@@ -70,21 +70,27 @@ def main():
             with path.open('rb') as stream: digest = hashlib.file_digest(stream,'sha256').hexdigest()
             if digest != checks[path.name]: raise ValueError('Release file checksum mismatch.')
         notes = root/'release-notes.md'
-        notes.write_text(f'''Seneca {version} — cleaner menus
+        notes.write_text(f'''Seneca {version} — Second brain & School day
 
-The main menu now has four daily choices: **Continue studying**, **My courses**, **Ask Seneca**, and **Settings**. Continue returns to the last course or conversation, and the launcher closes when a study/settings action opens.
+Keep a connected local notebook and fit studying around real classes. The four-action main menu stays simple; the new workflows live inside Courses and Today.
 
-Settings is split into **Companion**, **AI & Voice**, and **Privacy & Data**. Movement/perching controls are collapsed by default. Backups live under Privacy & Data; updates, diagnostics and problem reports are under **Help & About**. Syllabus import and revision/study-pack exports are grouped under **Course actions**. Weekly summaries stay in Today. Ctrl+K still finds actions, and Ctrl+Comma opens Settings directly.
+- **Second brain:** tagged notes, basic [[Note title]] links, backlinks, selected source associations, original/recent saved versions, topic/prerequisite maps and a dated timeline. Ambiguous links are not guessed; prerequisite cycles are rejected. Explicitly attached tutor interpretations are labeled separately from student notes and use Seneca’s math formatting.
+- **Visual study boards:** native movable cards/groups, directional labeled connections, Undo and reviewed JSON Canvas import/export. Markdown notes can be imported/exported. File/link cards remain inert references. These are original Seneca implementations, not bundled proprietary or AGPL application code.
+- **School day:** manually add dated weekly classes or review a selected .ics calendar for the next 16 weeks. Common daily/weekly recurrence, weekday/week-start rules, exclusions and IANA timezones are supported. Unsupported events and changed individual occurrences are reported for manual review. No calendar-account access or background sync is required. Optional class quiet mode suppresses companion distraction during saved meetings.
+- **After class and catch-up:** a short check-in becomes a dated connected note. Checklist, draggable board and calendar views share the same assignments. Catch-up plans use explicit available hours, avoid classes, include buffers/breaks, retain deadlines/completed blocks and report work that cannot fit. Replacement blocks require approval; overdue work is labeled late. Timed and manually reported completion remain distinct.
+- **Personal touches:** subtle gold/cyan/pearl accents, a saved resting pose and optional effort milestones. All accents are available, earned milestones stay earned, and quiet/reduced-motion controls remain respected.
 
-Existing study tools, saved connections, API keys, chats, drafts, course work and privacy choices are retained. No new AI requests, background monitoring or data migration is introduced by this layout change.
+Ask tutor opens/resumes a conversation for the chosen note and selected sources while preserving other chats/drafts. Nothing is sent automatically: cloud sharing still uses Seneca’s privacy checks and exact request review. The whole notebook is never silently uploaded. Local organization and planning require no paid API.
 
-Download **{setup}** to install, or **{portable}** for a portable copy. Installed copies can update through **Help & About → Updates**. Quit Seneca before manual installation; portable replacement remains manual. Python and Node are not required.
+Notes, boards, classes, captures, planned blocks and unfinished drafts are included in the Windows-protected profile and validated password backups. Restore remaps relationships and retains existing work. Shared course packs continue to exclude personal second-brain/school-day collections by default. Open-format exports contain readable study content and should be reviewed before sharing.
 
-Automated Windows Server 2022 checks cover 125 Python tests, the actual frozen app, navigation and study workflows, encrypted-data restoration, upgrade from 0.10.0, relaunch/reinstall and uninstall preservation. Physical Windows 11 and live audio/model acceptance remain separate hands-on checks.
+Download **{setup}** to install, or **{portable}** for a portable copy. Installed copies update through **Help & About → Updates**; quit Seneca before manual installation. Existing keys, connections and study data stay outside the installation folder. Python and Node are not required.
+
+Automated Windows Server 2022 checks cover 138 Python tests, 13 avatar tests, actual frozen study/school workflows, timezone resources, encrypted backups/profile reload, upgrade from 0.10.1, relaunch/reinstall and uninstall preservation. Physical Windows 11 interactions, live audio/model quality and every third-party calendar dialect remain separate hands-on checks.
 
 **Unsigned prototype:** Windows may show a publisher/reputation warning. SHA256SUMS.txt and build-info.json document integrity and provenance.
 
-Seneca is by Sebastian Canales, its original artist and art rights holder. PolyForm Noncommercial 1.0.0, required project-credit notices and bundled third-party notices apply. Application source development remains private.
+Seneca is by Sebastian Canales, its original artist and art rights holder. PolyForm Noncommercial 1.0.0, required project-credit notices and bundled third-party notices apply. Source development stays private.
 ''',encoding='utf-8')
         tag = 'v'+version
         lookup = subprocess.run(['gh','release','view',tag,'--json','isDraft'],capture_output=True,text=True)
