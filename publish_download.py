@@ -78,7 +78,10 @@ def main():
         else:
             gh('release','create',tag,'--draft','--title',f'Seneca {version}','--notes-file',str(notes),'--target','main')
         gh('release','upload',tag,'--clobber',*(str(p) for p in paths))
-        assets = json.loads(gh('release','view',tag,'--json','assets'))['assets']
+        releases = json.loads(gh('api',f'repos/{REPO}/releases?per_page=100'))
+        published = next(r for r in releases if r['tag_name'] == tag)
+        if not published['draft']: raise ValueError('Expected an unpublished draft.')
+        assets = published['assets']
         if {(a['name'],a['size']) for a in assets} != {(p.name,p.stat().st_size) for p in paths}:
             raise ValueError('Uploaded asset sizes do not match.')
         for asset in assets:
