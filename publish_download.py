@@ -70,27 +70,19 @@ def main():
             with path.open('rb') as stream: digest = hashlib.file_digest(stream,'sha256').hexdigest()
             if digest != checks[path.name]: raise ValueError('Release file checksum mismatch.')
         notes = root/'release-notes.md'
-        notes.write_text(f'''Seneca {version} — Windows x64 prototype
+        notes.write_text(f'''Seneca {version} — cleaner menus
 
-Download **{setup}** to install, or **{portable}** for a portable copy. Python and Node are not required. Existing installed copies can update through Settings → Updates; quit Seneca before a manual installation. Saved Windows-protected keys, connections and study data remain outside the install directory.
+The main menu now has four daily choices: **Continue studying**, **My courses**, **Ask Seneca**, and **Settings**. Continue returns to the last course or conversation, and the launcher closes when a study/settings action opens.
 
-This patch simplifies the main menu to Continue studying, My courses, Ask Seneca and Settings. Settings has three pages: Companion, AI & Voice, and Privacy & Data. Movement controls are collapsed by default. Backups are under Privacy & Data; updates, diagnostics and reports are under Help & About. Course imports/exports are grouped under Course actions, and weekly summaries stay in Today. Continue restores the last course/conversation destination; Ctrl+K remains available and Ctrl+Comma opens Settings directly. Existing study work, connections and preferences are preserved.
+Settings is split into **Companion**, **AI & Voice**, and **Privacy & Data**. Movement/perching controls are collapsed by default. Backups live under Privacy & Data; updates, diagnostics and problem reports are under **Help & About**. Syllabus import and revision/study-pack exports are grouped under **Course actions**. Weekly summaries stay in Today. Ctrl+K still finds actions, and Ctrl+Comma opens Settings directly.
 
-The existing student workspace includes a course home with persistent notes, learning preferences, glossary, pinned answers, checkpoints, short practice, exam study blocks, rubric checklists, local text/drawing scratchpads, revision exports and reviewed study packs. Subjects/topics can be deleted with Undo while linked material is retained unfiled. Weekly summaries use dated activity rather than invented mastery. Local study search, Ctrl+K actions, reviewed document drop, Quiet Study, reminder quiet hours and text sizing reduce day-to-day friction.
+Existing study tools, saved connections, API keys, chats, drafts, course work and privacy choices are retained. No new AI requests, background monitoring or data migration is introduced by this layout change.
 
-Course videos use free public YouTube search without mandatory API keys or AI credits, selected-link checks, official embedded/browser playback and saved Mark watched / Mark unwatched. YouTube may block requests or change page layouts; browser search and manual links remain available. Availability and search ranking do not guarantee educational accuracy; links are never invented as a fallback.
+Download **{setup}** to install, or **{portable}** for a portable copy. Installed copies can update through **Help & About → Updates**. Quit Seneca before manual installation; portable replacement remains manual. Python and Node are not required.
 
-Portable backups default to password protection with authenticated encryption, retain older plaintext import and always exclude saved keys/connections. Passwords are not recoverable. Shared packs exclude personal notes, drawings, progress, assignments, chat and source snapshots by default. Review all exported study text before sharing.
+Automated Windows Server 2022 checks cover 125 Python tests, the actual frozen app, navigation and study workflows, encrypted-data restoration, upgrade from 0.10.0, relaunch/reinstall and uninstall preservation. Physical Windows 11 and live audio/model acceptance remain separate hands-on checks.
 
-Cloud AI text is locally checked/redacted before the exact request preview; original history stays local. Detection cannot recognize every private context, so Local-only AI offers a strict cloud-AI block. Cloud audio defaults off and requires separate privacy opt-in plus recording review. Groq free-tier transcription defaults to whisper-large-v3-turbo with a separate Groq key; provider quotas apply. No paid OpenRouter transcription is selected automatically.
-
-Problem reports remain local and sanitized until explicitly reviewed. Opening a public GitHub draft does not submit it. Reports omit raw exception values, paths, chat, documents, saved keys and audio. No screen or browser-history monitoring is included.
-
-The avatar is 20% smaller with softer ivory/gold shading, solar teleport effects and bottom-taskbar perching. Roguepunk headings remain; buttons use Oxanium. Gentle sounds default on for new profiles, with remembered mute and temporary Quiet Study muting. His original two-legged, armless model and Sebastian Canales artwork remain intact.
-
-Automated checks cover the actual Windows Server 2022 executable, native course workflows, encrypted backup/profile reload, installer upgrade from 0.10.0, relaunch/reinstall and uninstall preservation. Physical Windows 11 DPI/taskbar behavior, actual cross-app shortcuts, complete interactive idle update/restart, live audio/model quality and changing YouTube availability remain hands-on acceptance items.
-
-**Unsigned prototype:** Windows may show a publisher/reputation warning. SHA256SUMS.txt and build-info.json document download integrity and build provenance.
+**Unsigned prototype:** Windows may show a publisher/reputation warning. SHA256SUMS.txt and build-info.json document integrity and provenance.
 
 Seneca is by Sebastian Canales, its original artist and art rights holder. PolyForm Noncommercial 1.0.0, required project-credit notices and bundled third-party notices apply. Application source development remains private.
 ''',encoding='utf-8')
