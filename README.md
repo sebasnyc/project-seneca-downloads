@@ -8,7 +8,9 @@ Under **Assets**, choose **Setup.exe** to install, or the complete **Portable.zi
 
 Installed copies from 0.7.2 onward can check, download and install verified updates from this public repo while idle. Your Windows-protected connections, keys, chat, drafts and settings stay on your PC, outside the install directory. Settings → Updates provides the controls. Quit older copies before updating manually; portable copies require manual replacement.
 
-Version 0.8 adds avatar quick chat and reply bubbles, named subject/topic chats, reviewed study documents and citations, deadlines and study plans, quizzes/flashcards, and optional topic activity progress/XP. Voice settings offer speaker selection and separately configured Fish Audio. Settings also includes a fixed read-only local security terminal, onboarding and installed sign-in startup. Existing 0.7.2 saved data migrates automatically; older apps cannot read the migrated profile.
+Version 0.9 adds a Today dashboard, scheduled practice reviews with a daily goal, reviewed syllabus-to-plan, Windows Ctrl+Alt+S quick help and explicit clipboard Paste, and portable study-only backup/restore. Backups exclude all saved connections and keys; restoring adds separate copies and keeps existing work. Existing 0.8.0 study data and connections remain in the same Windows-protected profile.
+
+Avatar quick chat, subject/topic workspaces, selected documents and citations, deadlines/plans, quizzes/flashcards, optional activity XP, Fish Audio/speaker choice, local security checks and installed sign-in startup remain available.
 
 This repo contains release downloads, notices and publishing infrastructure. Seneca’s application source development stays private. Team members can install and test public downloads without access to the source repo. Please avoid including API keys or personal chat content in issue reports.
 
