@@ -8,7 +8,13 @@ Under **Assets**, choose **Setup.exe** to install, or the complete **Portable.zi
 
 Installed copies from 0.7.2 onward can check, download and install verified updates from this public repo while idle. Your Windows-protected connections, keys, chat, drafts and settings stay on your PC, outside the install directory. Settings → Updates provides the controls. Quit older copies before updating manually; portable copies require manual replacement.
 
-Version 0.9 adds a Today dashboard, scheduled practice reviews with a daily goal, reviewed syllabus-to-plan, Windows Ctrl+Alt+S quick help and explicit clipboard Paste, and portable study-only backup/restore. Backups exclude all saved connections and keys; restoring adds separate copies and keeps existing work. Existing 0.8.0 study data and connections remain in the same Windows-protected profile.
+Version 0.10 brings a course home with notes, glossary, pinned answers, learning preferences and checkpoints; exam plans, rubrics and text/drawing scratchpads; revision/shared study packs; subject/topic deletion with Undo; weekly activity summaries; local search and Ctrl+K actions; Quiet Study, reminder quiet hours and text sizing. Portable backups now default to password encryption and still exclude saved connections/keys.
+
+Course videos offer free public YouTube search without a mandatory API key or AI credits, selected-link checks, official player/browser playback and saved Mark watched status. If YouTube blocks or changes its page, browser search and manual links remain available. Seneca does not invent replacement links or monitor the screen.
+
+Privacy controls redact recognizable private text before cloud AI review and offer a strict Local-only AI setting. Cloud audio defaults off; Groq free-tier transcription needs its own key, explicit privacy opt-in and recording review. Local problem reports open public GitHub drafts only after review; the user still submits them in the browser.
+
+The companion is 20% smaller with softer ivory/gold shading, solar teleport effects and bottom-taskbar perching. Buttons use readable Oxanium while Roguepunk titles remain. New profiles have gentle sounds on, with a remembered mute and temporary Quiet Study muting.
 
 Avatar quick chat, subject/topic workspaces, selected documents and citations, deadlines/plans, quizzes/flashcards, optional activity XP, Fish Audio/speaker choice, local security checks and installed sign-in startup remain available.
 
