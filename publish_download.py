@@ -70,27 +70,20 @@ def main():
             with path.open('rb') as stream: digest = hashlib.file_digest(stream,'sha256').hexdigest()
             if digest != checks[path.name]: raise ValueError('Release file checksum mismatch.')
         notes = root/'release-notes.md'
-        notes.write_text(f'''Seneca {version} — Second brain & School day
+        notes.write_text(f'''Seneca {version} — Windows & macOS
 
-Keep a connected local notebook and fit studying around real classes. The four-action main menu stays simple; the new workflows live inside Courses and Today.
+This release brings Seneca's existing second-brain and school-day features to Mac with the same codebase and version as Windows.
 
-- **Second brain:** tagged notes, basic [[Note title]] links, backlinks, selected source associations, original/recent saved versions, topic/prerequisite maps and a dated timeline. Ambiguous links are not guessed; prerequisite cycles are rejected. Explicitly attached tutor interpretations are labeled separately from student notes and use Seneca’s math formatting.
-- **Visual study boards:** native movable cards/groups, directional labeled connections, Undo and reviewed JSON Canvas import/export. Markdown notes can be imported/exported. File/link cards remain inert references. These are original Seneca implementations, not bundled proprietary or AGPL application code.
-- **School day:** manually add dated weekly classes or review a selected .ics calendar for the next 16 weeks. Common daily/weekly recurrence, weekday/week-start rules, exclusions and IANA timezones are supported. Unsupported events and changed individual occurrences are reported for manual review. No calendar-account access or background sync is required. Optional class quiet mode suppresses companion distraction during saved meetings.
-- **After class and catch-up:** a short check-in becomes a dated connected note. Checklist, draggable board and calendar views share the same assignments. Catch-up plans use explicit available hours, avoid classes, include buffers/breaks, retain deadlines/completed blocks and report work that cannot fit. Replacement blocks require approval; overdue work is labeled late. Timed and manually reported completion remain distinct.
-- **Personal touches:** subtle gold/cyan/pearl accents, a saved resting pose and optional effort milestones. All accents are available, earned milestones stay earned, and quiet/reduced-motion controls remain respected.
+- **Windows:** choose **{setup}**, or **{portable}**. Existing installed copies use their Windows-only automatic updater. Windows never selects Mac ZIPs.
+- **Mac:** choose **Seneca-{version}-macOS-arm64.zip** for Apple Silicon or **Seneca-{version}-macOS-x86_64.zip** for Intel, when listed below. Requires macOS 12+. Expand the ZIP and move Seneca.app to Applications. Mac builds are added only after their architecture-specific checks pass.
+- **Mac updates:** Help & About → Updates checks and verifies the ZIP for this processor. Save it, quit Seneca and replace the app manually. No Windows installer is selected or executed on Mac.
+- **Saved data:** Windows keeps its DPAPI-protected profile. Mac keeps an authenticated encrypted profile in ~/Library/Application Support/Seneca and its encryption key in Keychain. Replacing the app preserves both. Do not delete the data folder or Keychain item; an updated unsigned build may ask for Keychain access again. Password backups transfer study data without provider keys.
+- **Same student tools:** linked notes/backlinks, preserved original writing with separate AI interpretations, boards/maps/timeline, timetable/check-ins, assignment views and reviewed class-aware catch-up plans. Local organization requires no paid API. AI and voice remain opt-in and reviewed.
+- **Mac differences:** per-user login startup after moving to Applications; Windows window/taskbar perching, global quick-help and Defender/connection queries are unavailable. Local file hashes remain available.
 
-Ask tutor opens/resumes a conversation for the chosen note and selected sources while preserving other chats/drafts. Nothing is sent automatically: cloud sharing still uses Seneca’s privacy checks and exact request review. The whole notebook is never silently uploaded. Local organization and planning require no paid API.
+**Prototype signing:** Windows is unsigned. Mac uses ad-hoc integrity signing, without Developer ID or notarization. If macOS blocks it, review System Settings → Privacy & Security → Open Anyway. Never disable Gatekeeper. Physical device, microphone/speaker and model acceptance remain separate from CI fixtures.
 
-Notes, boards, classes, captures, planned blocks and unfinished drafts are included in the Windows-protected profile and validated password backups. Restore remaps relationships and retains existing work. Shared course packs continue to exclude personal second-brain/school-day collections by default. Open-format exports contain readable study content and should be reviewed before sharing.
-
-Download **{setup}** to install, or **{portable}** for a portable copy. Installed copies update through **Help & About → Updates**; quit Seneca before manual installation. Existing keys, connections and study data stay outside the installation folder. Python and Node are not required.
-
-Automated Windows Server 2022 checks cover 138 Python tests, 13 avatar tests, actual frozen study/school workflows, timezone resources, encrypted backups/profile reload, upgrade from 0.10.1, relaunch/reinstall and uninstall preservation. Physical Windows 11 interactions, live audio/model quality and every third-party calendar dialect remain separate hands-on checks.
-
-**Unsigned prototype:** Windows may show a publisher/reputation warning. SHA256SUMS.txt and build-info.json document integrity and provenance.
-
-Seneca is by Sebastian Canales, its original artist and art rights holder. PolyForm Noncommercial 1.0.0, required project-credit notices and bundled third-party notices apply. Source development stays private.
+Platform-specific checksums and build-info files document provenance. The source remains in the original private repository; this public repository distributes downloads only. Seneca is by Sebastian Canales, its original artist and art rights holder. PolyForm Noncommercial 1.0.0 and bundled notices apply.
 ''',encoding='utf-8')
         tag = 'v'+version
         lookup = subprocess.run(['gh','release','view',tag,'--json','isDraft'],capture_output=True,text=True)

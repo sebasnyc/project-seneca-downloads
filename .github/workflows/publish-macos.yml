@@ -1,0 +1,31 @@
+name: Publish verified Mac download
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        required: true
+      arch:
+        required: true
+        type: choice
+        options: [arm64, x86_64]
+      archive_url:
+        required: true
+      archive_sha256:
+        required: true
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      SENECA_VERSION: ${{ inputs.version }}
+      SENECA_ARCH: ${{ inputs.arch }}
+      SENECA_ARCHIVE_URL: ${{ inputs.archive_url }}
+      SENECA_ARCHIVE_SHA: ${{ inputs.archive_sha256 }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify Mac build and upload processor-specific assets
+        run: python publish_macos.py

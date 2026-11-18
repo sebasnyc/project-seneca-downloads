@@ -2,9 +2,9 @@
 
 Seneca is my desktop study companion: an ivory-and-gold droid with an ancient-futuristic, cyberpunk-inspired design. I’m Sebastian Canales, Seneca’s original artist and art rights holder.
 
-**[Download the latest Windows release](https://github.com/sebasnyc/project-seneca-downloads/releases/latest)**
+**[Download the latest release](https://github.com/sebasnyc/project-seneca-downloads/releases/latest)**
 
-Under **Assets**, choose **Setup.exe** to install, or the complete **Portable.zip** for a portable copy. No Python or Node installation is needed. Builds are unsigned prototypes, so Windows may show a publisher/reputation warning.
+Under **Assets**, choose **Setup.exe** to install, or the complete **Portable.zip** for a portable Windows copy. For Mac, choose **macOS-arm64.zip** (Apple Silicon) or **macOS-x86_64.zip** (Intel), expand it and move Seneca.app to Applications. Mac assets appear only after their own checks pass. No Python or Node installation is needed. Builds are unsigned prototypes, so Windows may show a publisher/reputation warning.
 
 Installed copies from 0.7.2 onward can check, download and install verified updates from this public repo while idle. Your Windows-protected connections, keys, chat, drafts and settings stay on your PC, outside the install directory. Help & About → Updates provides the controls. Quit older copies before updating manually; portable copies require manual replacement.
 
@@ -29,3 +29,9 @@ This repo contains release downloads, notices and publishing infrastructure. Sen
 Seneca uses **PolyForm Noncommercial 1.0.0**, with the required Sebastian Canales copyright and Seneca project-credit notices. See [LICENSE.md](LICENSE.md), [NOTICE.txt](NOTICE.txt), and the third-party notices bundled with each app download.
 
 Automated Windows Server checks do not replace hands-on Windows 11 DPI/perching, audio hardware or tutoring-quality testing.
+
+## macOS (0.11.1 onward)
+
+Requires macOS 12+. Mac downloads contain the same student features as Windows. Help & About → Updates checks the exact processor-specific ZIP and verifies it before saving; quit and replace the app manually. Windows continues selecting only its Setup.exe. Saved Mac profiles are AES-GCM encrypted outside the bundle under ~/Library/Application Support/Seneca, with the key in Keychain; replacing the app preserves data. A new unsigned build may request Keychain access again.
+
+Mac prototypes are ad-hoc signed, not Developer ID signed or notarized. Review System Settings → Privacy & Security → Open Anyway if blocked; never disable Gatekeeper. Enable login startup only after moving the app to Applications. Windows-only taskbar/window perching, global shortcut and Defender/network queries are unavailable. Live voice and physical Mac acceptance remain manual checks.
