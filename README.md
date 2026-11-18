@@ -32,6 +32,6 @@ Automated Windows Server checks do not replace hands-on Windows 11 DPI/perching,
 
 ## macOS (0.11.1 onward)
 
-Requires macOS 12+. Mac downloads contain the same student features as Windows. Help & About → Updates checks the exact processor-specific ZIP and verifies it before saving; quit and replace the app manually. Windows continues selecting only its Setup.exe. Saved Mac profiles are AES-GCM encrypted outside the bundle under ~/Library/Application Support/Seneca, with the key in Keychain; replacing the app preserves data. A new unsigned build may request Keychain access again.
+Requires macOS 14+. Mac downloads contain the same student features as Windows. Help & About → Updates checks the exact processor-specific ZIP and verifies it before saving; quit and replace the app manually. Windows continues selecting only its Setup.exe. Saved Mac profiles are AES-GCM encrypted outside the bundle under ~/Library/Application Support/Seneca, with the key in Keychain; replacing the app preserves data. A new unsigned build may request Keychain access again.
 
 Mac prototypes are ad-hoc signed, not Developer ID signed or notarized. Review System Settings → Privacy & Security → Open Anyway if blocked; never disable Gatekeeper. Enable login startup only after moving the app to Applications. Windows-only taskbar/window perching, global shortcut and Defender/network queries are unavailable. Live voice and physical Mac acceptance remain manual checks.

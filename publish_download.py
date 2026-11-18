@@ -75,7 +75,7 @@ def main():
 This release brings Seneca's existing second-brain and school-day features to Mac with the same codebase and version as Windows.
 
 - **Windows:** choose **{setup}**, or **{portable}**. Existing installed copies use their Windows-only automatic updater. Windows never selects Mac ZIPs.
-- **Mac:** choose **Seneca-{version}-macOS-arm64.zip** for Apple Silicon or **Seneca-{version}-macOS-x86_64.zip** for Intel, when listed below. Requires macOS 12+. Expand the ZIP and move Seneca.app to Applications. Mac builds are added only after their architecture-specific checks pass.
+- **Mac:** choose **Seneca-{version}-macOS-arm64.zip** for Apple Silicon or **Seneca-{version}-macOS-x86_64.zip** for Intel, when listed below. Requires macOS 14+. Expand the ZIP and move Seneca.app to Applications. Mac builds are added only after their architecture-specific checks pass.
 - **Mac updates:** Help & About → Updates checks and verifies the ZIP for this processor. Save it, quit Seneca and replace the app manually. No Windows installer is selected or executed on Mac.
 - **Saved data:** Windows keeps its DPAPI-protected profile. Mac keeps an authenticated encrypted profile in ~/Library/Application Support/Seneca and its encryption key in Keychain. Replacing the app preserves both. Do not delete the data folder or Keychain item; an updated unsigned build may ask for Keychain access again. Password backups transfer study data without provider keys.
 - **Same student tools:** linked notes/backlinks, preserved original writing with separate AI interpretations, boards/maps/timeline, timetable/check-ins, assignment views and reviewed class-aware catch-up plans. Local organization requires no paid API. AI and voice remain opt-in and reviewed.
