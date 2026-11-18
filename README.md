@@ -4,7 +4,7 @@ Seneca is my desktop study companion: an ivory-and-gold droid with an ancient-fu
 
 **[Download the latest release](https://github.com/sebasnyc/project-seneca-downloads/releases/latest)**
 
-Under **Assets**, choose **Setup.exe** to install, or the complete **Portable.zip** for a portable Windows copy. For Mac, choose **macOS-arm64.zip** (Apple Silicon) or **macOS-x86_64.zip** (Intel), expand it and move Seneca.app to Applications. Mac assets appear only after their own checks pass. No Python or Node installation is needed. Builds are unsigned prototypes, so Windows may show a publisher/reputation warning.
+Under **Assets**, choose **Setup.exe** to install, or the complete **Portable.zip** for a portable Windows copy. For Mac, choose **macOS-arm64.zip** (Apple Silicon) or **macOS-x86_64.zip** (Intel), expand it and move Seneca.app to Applications. Both Mac downloads require macOS 14 or newer and passed their frozen-app checks. No Python or Node installation is needed. Builds are unsigned prototypes, so Windows may show a publisher/reputation warning.
 
 Installed copies from 0.7.2 onward can check, download and install verified updates from this public repo while idle. Your Windows-protected connections, keys, chat, drafts and settings stay on your PC, outside the install directory. Help & About → Updates provides the controls. Quit older copies before updating manually; portable copies require manual replacement.
 
@@ -35,3 +35,5 @@ Automated Windows Server checks do not replace hands-on Windows 11 DPI/perching,
 Requires macOS 14+. Mac downloads contain the same student features as Windows. Help & About → Updates checks the exact processor-specific ZIP and verifies it before saving; quit and replace the app manually. Windows continues selecting only its Setup.exe. Saved Mac profiles are AES-GCM encrypted outside the bundle under ~/Library/Application Support/Seneca, with the key in Keychain; replacing the app preserves data. A new unsigned build may request Keychain access again.
 
 Mac prototypes are ad-hoc signed, not Developer ID signed or notarized. Review System Settings → Privacy & Security → Open Anyway if blocked; never disable Gatekeeper. Enable login startup only after moving the app to Applications. Windows-only taskbar/window perching, global shortcut and Defender/network queries are unavailable. Live voice and physical Mac acceptance remain manual checks.
+
+Seneca 0.11.1 is available for Windows x64, Apple Silicon and Intel. The same verified downloads are also archived in the original private repo. Platform/processor-specific updater checks passed; Windows continues to select only its Windows installer.
