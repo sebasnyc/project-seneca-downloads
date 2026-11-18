@@ -35,6 +35,7 @@ def main():
             import plistlib
             bundle=plistlib.loads(z.read('Seneca.app/Contents/Info.plist'))
             assert bundle['CFBundleIdentifier']==info['bundle_id'] and bundle['CFBundleShortVersionString']==version
+            assert info['minimum_macos']==bundle['LSMinimumSystemVersion'] and tuple(map(int,info['minimum_macos'].split('.'))) >= (14,0,0)
         sha=hashlib.file_digest(path.open('rb'),'sha256').hexdigest()
         checksum=root/f'SHA256SUMS-macOS-{arch}.txt';checksum.write_text(sha+'  '+name+'\n')
         provenance=root/f'build-info-macOS-{arch}.json';provenance.write_text(json.dumps(info,indent=2)+'\n')
