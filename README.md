@@ -8,7 +8,13 @@
 
 ## Download
 
-[Download v0.15.0-beta.1](https://github.com/sebasnyc/project-seneca-downloads/releases/tag/v0.15.0-beta.1) is a manual pre-release install.
+**Seneca 0.15.0-beta.1** is a manual prerelease install. [Release notes and checksums](https://github.com/sebasnyc/project-seneca-downloads/releases/tag/v0.15.0-beta.1)
+
+| Platform | Download |
+| --- | --- |
+| Windows x64 | [Installer](https://github.com/sebasnyc/project-seneca-downloads/releases/download/v0.15.0-beta.1/Seneca-0.15.0-beta.1-Windows-x64-Setup.exe) · [Portable ZIP](https://github.com/sebasnyc/project-seneca-downloads/releases/download/v0.15.0-beta.1/Seneca-0.15.0-beta.1-Windows-x64-Portable.zip) |
+| Mac with Apple Silicon | [Download for arm64](https://github.com/sebasnyc/project-seneca-downloads/releases/download/v0.15.0-beta.1/Seneca-0.15.0-beta.1-macOS-arm64.zip) |
+| Mac with Intel | [Download for x86_64](https://github.com/sebasnyc/project-seneca-downloads/releases/download/v0.15.0-beta.1/Seneca-0.15.0-beta.1-macOS-x86_64.zip) |
 
 [Latest stable release for Windows and Mac](https://github.com/sebasnyc/project-seneca-downloads/releases/latest) · [All releases](https://github.com/sebasnyc/project-seneca-downloads/releases)
 
