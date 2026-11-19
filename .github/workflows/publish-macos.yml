@@ -2,6 +2,10 @@ name: Publish verified Mac download
 on:
   workflow_dispatch:
     inputs:
+      expected_commit:
+        description: 'Verified private build commit, required for beta staging'
+        required: false
+        default: ''
       version:
         required: true
       arch:
@@ -25,6 +29,7 @@ jobs:
     env:
       GH_TOKEN: ${{ github.token }}
       GH_REPO: ${{ github.repository }}
+      SENECA_EXPECTED_COMMIT: ${{ inputs.expected_commit }}
       SENECA_VERSION: ${{ inputs.version }}
       SENECA_ARCH: ${{ inputs.arch }}
       SENECA_ARCHIVE_URL: ${{ inputs.archive_url }}

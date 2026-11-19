@@ -35,9 +35,13 @@ def main():
     url = os.environ['SENECA_ARCHIVE_URL']
     expected = os.environ['SENECA_ARCHIVE_SHA']
     draft_only = os.environ.get('SENECA_DRAFT_ONLY') == 'true'
+    beta = '-beta.' in version
+    expected_commit = os.environ.get('SENECA_EXPECTED_COMMIT', '')
+    if beta and (not draft_only or not re.fullmatch(r'[0-9a-f]{40}', expected_commit)):
+        raise ValueError('Beta uploads require draft staging and the exact source commit.')
     # The link grants temporary access only to binaries intended for this public release.
     print('::add-mask::'+url, flush=True)
-    if not re.fullmatch(r'\d+\.\d+\.\d+',version) or not re.fullmatch(r'[0-9a-f]{64}',expected) or not allowed_url(url):
+    if not re.fullmatch(r'\d+\.\d+\.\d+(?:-beta\.\d+)?',version) or not re.fullmatch(r'[0-9a-f]{64}',expected) or not allowed_url(url):
         raise ValueError('Invalid version, archive URL or digest.')
     if os.environ['GH_REPO'] != REPO: raise ValueError('Wrong release destination.')
     repo = json.loads(gh('api',f'repos/{REPO}'))
@@ -60,6 +64,8 @@ def main():
             zipped.extractall(root)
         info = json.loads((root/'dist/build-info.json').read_text())
         if info['version'] != version: raise ValueError('Build version does not match.')
+        if expected_commit and info.get('commit') != expected_commit:
+            raise ValueError('Windows package source commit does not match.')
         paths = [root/n for n in names]
         checks = {}
         for line in paths[2].read_text().splitlines():
@@ -109,11 +115,12 @@ Platform-specific checksums and build-info files document provenance. The source
         if lookup.returncode == 0:
             if not json.loads(lookup.stdout)['isDraft']: raise ValueError('This version is already published.')
         else:
-            gh('release','create',tag,'--draft','--title',f'Seneca {version}','--notes-file',str(notes),'--target','main')
+            flags = ('--prerelease', '--latest=false') if beta else ()
+            gh('release','create',tag,'--draft','--title',f'Seneca {version}','--notes-file',str(notes),'--target','main',*flags)
         gh('release','upload',tag,'--clobber',*(str(p) for p in paths))
         releases = json.loads(gh('api',f'repos/{REPO}/releases?per_page=100'))
         published = next(r for r in releases if r['tag_name'] == tag)
-        if not published['draft']: raise ValueError('Expected an unpublished draft.')
+        if not published['draft'] or published['prerelease'] != beta: raise ValueError('Unexpected draft channels.')
         assets = published['assets']
         if {(a['name'],a['size']) for a in assets} != {(p.name,p.stat().st_size) for p in paths}:
             raise ValueError('Uploaded asset sizes do not match.')
