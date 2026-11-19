@@ -4,8 +4,6 @@ Seneca is my desktop study companion: an ivory-and-gold droid with an ancient-fu
 
 **[Download the latest release](https://github.com/sebasnyc/project-seneca-downloads/releases/latest)**
 
-Version 0.14 refreshes the desktop windows with ivory, gold, and teal, plus Oxanium titles and Atkinson Hyperlegible Next for buttons and reading. Mainframe rearranges its panels on smaller displays. School Day marks the current time and lets you double-click an empty slot to add a class or study block. Opening a topic preserves your unsent draft.
-
 Under **Assets**, choose **Setup.exe** to install, or the complete **Portable.zip** for a portable Windows copy. For Mac, choose **macOS-arm64.zip** (Apple Silicon) or **macOS-x86_64.zip** (Intel), expand it and move Seneca.app to Applications. Both Mac downloads require macOS 14 or newer and passed their frozen-app checks. No Python or Node installation is needed. Builds are unsigned prototypes, so Windows may show a publisher/reputation warning.
 
 Installed copies from 0.7.2 onward can check, download and install verified updates from this public repo while idle. Your Windows-protected connections, keys, chat, drafts and settings stay on your PC, outside the install directory. Help & About → Updates provides the controls. Quit older copies before updating manually; portable copies require manual replacement.
@@ -22,7 +20,7 @@ Course videos offer free public YouTube search without a mandatory API key or AI
 
 Privacy controls redact recognizable private text before cloud AI review and offer a strict Local-only AI setting. Cloud audio defaults off; Groq free-tier transcription needs its own key, explicit privacy opt-in and recording review. Local problem reports open public GitHub drafts only after review; the user still submits them in the browser.
 
-The companion is 20% smaller with softer ivory/gold shading, solar teleport effects and bottom-taskbar perching. New profiles have gentle sounds on, with a remembered mute and temporary Quiet Study muting.
+The companion is 20% smaller with softer ivory/gold shading, solar teleport effects and bottom-taskbar perching. Buttons use readable Oxanium while Roguepunk titles remain. New profiles have gentle sounds on, with a remembered mute and temporary Quiet Study muting.
 
 Avatar quick chat, subject/topic workspaces, selected documents and citations, deadlines/plans, quizzes/flashcards, optional activity XP, Fish Audio/speaker choice, local security checks and installed sign-in startup remain available.
 
