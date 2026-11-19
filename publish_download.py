@@ -72,7 +72,7 @@ def main():
         notes = root/'release-notes.md'
         notes.write_text(f'''Seneca {version} — Windows & macOS
 
-Moonstone gives the desktop companion an ivory-and-gold 3D finish, a softer idle and revised motion. Today, Mainframe and the weekly timetable have clearer navigation. Regular work windows minimize and restore with the same draft.
+Today, Mainframe and the weekly timetable have clearer navigation. Regular work windows minimize and restore with the same draft.
 
 - **Study with your materials:** search selected notes and documents for exact evidence, explain an idea to Seneca, retry reviewed misses and follow a 15-, 30- or 60-minute guided session.
 - **Build a second brain:** file captures, attach passages to writing, compare revisions, edit tutor memories, inspect the course path, explore three simulations and link evidence across classes.
