@@ -72,14 +72,16 @@ def main():
         notes = root/'release-notes.md'
         notes.write_text(f'''Seneca {version} — Windows & macOS
 
-This release brings Seneca's existing second-brain and school-day features to Mac with the same codebase and version as Windows.
+Moonstone gives the desktop companion an ivory-and-gold 3D finish, a softer idle and revised motion. Today, Mainframe and the weekly timetable have clearer navigation. Regular work windows minimize and restore with the same draft.
 
-- **Windows:** choose **{setup}**, or **{portable}**. Existing installed copies use their Windows-only automatic updater. Windows never selects Mac ZIPs.
-- **Mac:** choose **Seneca-{version}-macOS-arm64.zip** for Apple Silicon or **Seneca-{version}-macOS-x86_64.zip** for Intel, when listed below. Requires macOS 14+. Expand the ZIP and move Seneca.app to Applications. Mac builds are added only after their architecture-specific checks pass.
-- **Mac updates:** Help & About → Updates checks and verifies the ZIP for this processor. Save it, quit Seneca and replace the app manually. No Windows installer is selected or executed on Mac.
-- **Saved data:** Windows keeps its DPAPI-protected profile. Mac keeps an authenticated encrypted profile in ~/Library/Application Support/Seneca and its encryption key in Keychain. Replacing the app preserves both. Do not delete the data folder or Keychain item; an updated unsigned build may ask for Keychain access again. Password backups transfer study data without provider keys.
-- **Same student tools:** linked notes/backlinks, preserved original writing with separate AI interpretations, boards/maps/timeline, timetable/check-ins, assignment views and reviewed class-aware catch-up plans. Local organization requires no paid API. AI and voice remain opt-in and reviewed.
-- **Mac differences:** per-user login startup after moving to Applications; Windows window/taskbar perching, global quick-help and Defender/connection queries are unavailable. Local file hashes remain available.
+- **Study with your materials:** search selected notes and documents for exact evidence, explain an idea to Seneca, retry reviewed misses and follow a 15-, 30- or 60-minute guided session.
+- **Build a second brain:** file captures, attach passages to writing, compare revisions, edit tutor memories, inspect the course path, explore three simulations and link evidence across classes.
+- **Practice together:** live rooms use the same local network and one-time invites. Shared material stays in the room until it closes. Individual practice remains on each student's device.
+- **Bring in outside material:** load exercises from a selected public OpenStax page, paste a passage or review text from a one-time screen snapshot. Local OCR requires Tesseract. Reviewed voice commands can request Calculator, Notepad or TextEdit where supported.
+- **Windows:** choose **{setup}**, or **{portable}**. Existing installed copies use their Windows automatic updater.
+- **Mac:** choose **Seneca-{version}-macOS-arm64.zip** for Apple Silicon or **Seneca-{version}-macOS-x86_64.zip** for Intel, when listed below. Requires macOS 14+. Expand the ZIP and move Seneca.app to Applications.
+- **Mac updates:** Help & About → Updates checks and verifies the ZIP for this processor. Save it, quit Seneca and replace the app manually.
+- **Saved data:** replacing Seneca preserves study work, settings and saved connections in the existing protected profile. An updated unsigned Mac build may ask for Keychain access again. Password backups transfer study data without provider keys.
 
 **Prototype signing:** Windows is unsigned. Mac uses ad-hoc integrity signing, without Developer ID or notarization. If macOS blocks it, review System Settings → Privacy & Security → Open Anyway. Never disable Gatekeeper. Physical device, microphone/speaker and model acceptance remain separate from CI fixtures.
 
