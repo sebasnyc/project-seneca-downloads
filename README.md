@@ -4,7 +4,7 @@ Seneca is my desktop study companion: an ivory-and-gold droid with an ancient-fu
 
 **[Download the latest release](https://github.com/sebasnyc/project-seneca-downloads/releases/latest)**
 
-Seneca 0.14.0 refreshes the desktop with ivory, gold, and teal, Oxanium titles, and Atkinson Hyperlegible Next for buttons and reading. Mainframe adapts to narrow windows, topic changes keep your draft, and School Day lets you double-click an empty slot to add a class or study block. [0.14.0 release notes](release-notes/0.14.0.md)
+Seneca 0.14.1 brings Today, Classes, Chat, and Calendar into one Home window. Linked notes and study files appear with their class, Chat shows attached sources, and one focus timer keeps running as you switch views. [0.14.1 release notes](release-notes/0.14.1.md)
 
 Under **Assets**, choose **Setup.exe** to install, or the complete **Portable.zip** for a portable Windows copy. For Mac, choose **macOS-arm64.zip** (Apple Silicon) or **macOS-x86_64.zip** (Intel), expand it and move Seneca.app to Applications. Both Mac downloads require macOS 14 or newer and passed their frozen-app checks. No Python or Node installation is needed. Builds are unsigned prototypes, so Windows may show a publisher/reputation warning.
 
