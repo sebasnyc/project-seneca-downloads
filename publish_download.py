@@ -72,6 +72,8 @@ def main():
         notes = root/'release-notes.md'
         notes.write_text(f'''Seneca {version} — Windows & macOS
 
+Seneca remains a draggable desktop companion. His original design gains subtle ink contours and shaded ivory panels. Left-click for quick chat and right-click for the menu.
+
 Today, Mainframe and the weekly timetable have clearer navigation. Regular work windows minimize and restore with the same draft.
 
 - **Study with your materials:** search selected notes and documents for exact evidence, explain an idea to Seneca, retry reviewed misses and follow a 15-, 30- or 60-minute guided session.
