@@ -12,6 +12,10 @@ on:
         required: true
       archive_sha256:
         required: true
+      draft_only:
+        description: 'Stage this asset on the unpublished release'
+        type: boolean
+        default: false
 permissions:
   contents: write
 jobs:
@@ -25,6 +29,7 @@ jobs:
       SENECA_ARCH: ${{ inputs.arch }}
       SENECA_ARCHIVE_URL: ${{ inputs.archive_url }}
       SENECA_ARCHIVE_SHA: ${{ inputs.archive_sha256 }}
+      SENECA_DRAFT_ONLY: ${{ inputs.draft_only }}
     steps:
       - uses: actions/checkout@v4
       - name: Verify Mac build and upload processor-specific assets

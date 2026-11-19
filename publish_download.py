@@ -34,6 +34,7 @@ def main():
     version = os.environ['SENECA_VERSION']
     url = os.environ['SENECA_ARCHIVE_URL']
     expected = os.environ['SENECA_ARCHIVE_SHA']
+    draft_only = os.environ.get('SENECA_DRAFT_ONLY') == 'true'
     # The link grants temporary access only to binaries intended for this public release.
     print('::add-mask::'+url, flush=True)
     if not re.fullmatch(r'\d+\.\d+\.\d+',version) or not re.fullmatch(r'[0-9a-f]{64}',expected) or not allowed_url(url):
@@ -100,6 +101,9 @@ Today, Mainframe and the weekly timetable have clearer navigation. Regular work 
 
 Platform-specific checksums and build-info files document provenance. The source remains in the original private repository; this public repository distributes downloads only. Seneca is by Sebastian Canales, its original artist and art rights holder. PolyForm Noncommercial 1.0.0 and bundled notices apply.
 ''',encoding='utf-8')
+        custom_notes = Path('release-notes') / f'{version}.md'
+        if custom_notes.is_file():
+            notes.write_bytes(custom_notes.read_bytes())
         tag = 'v'+version
         lookup = subprocess.run(['gh','release','view',tag,'--json','isDraft'],capture_output=True,text=True)
         if lookup.returncode == 0:
@@ -117,8 +121,11 @@ Platform-specific checksums and build-info files document provenance. The source
             path = next(p for p in paths if p.name == asset['name'])
             with path.open('rb') as stream: digest = hashlib.file_digest(stream,'sha256').hexdigest()
             if asset.get('digest') != 'sha256:'+digest: raise ValueError('Uploaded asset digest does not match.')
-        gh('release','edit',tag,'--draft=false','--latest','--notes-file',str(notes))
-        print(f'https://github.com/{REPO}/releases/tag/{tag}')
+        if draft_only:
+            print(f'Staged and verified Windows assets for {tag}.')
+        else:
+            gh('release','edit',tag,'--draft=false','--latest','--notes-file',str(notes))
+            print(f'https://github.com/{REPO}/releases/tag/{tag}')
 
 
 if __name__ == '__main__': main()

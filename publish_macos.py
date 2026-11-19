@@ -3,6 +3,17 @@ import hashlib,io,json,os,re,tempfile,urllib.request,zipfile
 from pathlib import Path
 from publish_download import gh,allowed_url,Redirect,REPO,MAX_BYTES
 
+
+def release_data(tag, draft_only):
+    endpoint = f'repos/{REPO}/releases'
+    if draft_only:
+        view = json.loads(gh('release', 'view', tag, '--json', 'databaseId,isDraft'))
+        if view['isDraft'] is not True:
+            raise ValueError('Expected an unpublished draft.')
+        return json.loads(gh('api', f"{endpoint}/{view['databaseId']}"))
+    return json.loads(gh('api', f'{endpoint}/tags/{tag}'))
+
+
 def main():
     version=os.environ['SENECA_VERSION'];arch=os.environ['SENECA_ARCH'];url=os.environ['SENECA_ARCHIVE_URL'];expected=os.environ['SENECA_ARCHIVE_SHA']
     print('::add-mask::'+url,flush=True)
@@ -10,9 +21,10 @@ def main():
     if os.environ['GH_REPO']!=REPO:raise ValueError('Wrong repository.')
     repo=json.loads(gh('api',f'repos/{REPO}'));assert not repo['private'] and repo['full_name']==REPO
     name=f'Seneca-{version}-macOS-{arch}.zip';tag='v'+version
-    release=json.loads(gh('api',f'repos/{REPO}/releases/tags/{tag}'))
-    # Windows publishes the shared version first. Never replace a live Mac asset.
-    assert not release['draft'] and not release['prerelease']
+    draft_only = os.environ.get('SENECA_DRAFT_ONLY') == 'true'
+    release = release_data(tag, draft_only)
+    if release['draft'] != draft_only or release['prerelease']:
+        raise ValueError('Unexpected release state.')
     if any(a['name']==name for a in release['assets']):raise ValueError('Mac asset already published; use a new version.')
     with tempfile.TemporaryDirectory() as tmp:
         root=Path(tmp);outer=root/'artifact.zip';digest=hashlib.sha256();count=0
@@ -41,7 +53,7 @@ def main():
         provenance=root/f'build-info-macOS-{arch}.json';provenance.write_text(json.dumps(info,indent=2)+'\n')
         paths=[path,checksum,provenance]
         gh('release','upload',tag,*(str(p) for p in paths))
-        current=json.loads(gh('api',f'repos/{REPO}/releases/tags/{tag}'))
+        current = release_data(tag, draft_only)
         for p in paths:
             matches=[a for a in current['assets'] if a['name']==p.name];assert len(matches)==1
             assert matches[0]['size']==p.stat().st_size and matches[0]['digest']=='sha256:'+hashlib.file_digest(p.open('rb'),'sha256').hexdigest()

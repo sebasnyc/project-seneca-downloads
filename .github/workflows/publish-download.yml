@@ -11,6 +11,10 @@ on:
       archive_sha256:
         description: 'SHA-256 from the successful build artifact metadata'
         required: true
+      draft_only:
+        description: 'Stage Windows assets while the other platform builds are added'
+        type: boolean
+        default: false
 permissions:
   contents: write
 jobs:
@@ -23,6 +27,7 @@ jobs:
       SENECA_VERSION: ${{ inputs.version }}
       SENECA_ARCHIVE_URL: ${{ inputs.archive_url }}
       SENECA_ARCHIVE_SHA: ${{ inputs.archive_sha256 }}
+      SENECA_DRAFT_ONLY: ${{ inputs.draft_only }}
     steps:
       - uses: actions/checkout@v4
       - name: Verify archive and publish completed release
