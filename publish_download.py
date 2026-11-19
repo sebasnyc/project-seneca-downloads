@@ -70,9 +70,20 @@ def main():
             with path.open('rb') as stream: digest = hashlib.file_digest(stream,'sha256').hexdigest()
             if digest != checks[path.name]: raise ValueError('Release file checksum mismatch.')
         notes = root/'release-notes.md'
+        followup = ''
+        if version == '0.13.0':
+            followup = (
+                'Today has its own button in the avatar’s right-click menu. The Second Brain map keeps its framing '
+                'during selection, shows a dedicated link inspector, and opens notes directly. Renamed notes keep '
+                'incoming links, and separate unfinished drafts can be resumed. Native windows use a consistent '
+                'light palette for clarity, with readable transcripts and math.\n\n'
+                'This build adds mock exams from reviewed practice, a research library for Zotero CSL JSON and '
+                'exact quotes, a reviewed deadline inbox for calendar files, local PDF/slide OCR through Tesseract, '
+                'and encrypted study revisions in a user-selected shared folder.\n\n'
+            )
         notes.write_text(f'''Seneca {version} — Windows & macOS
 
-Seneca remains a draggable desktop companion. His original design gains subtle ink contours and shaded ivory panels. Left-click for quick chat and right-click for the menu.
+{followup}Seneca remains a draggable desktop companion. His original design gains subtle ink contours and shaded ivory panels. Left-click for quick chat and right-click for the menu.
 
 Today, Mainframe and the weekly timetable have clearer navigation. Regular work windows minimize and restore with the same draft.
 
