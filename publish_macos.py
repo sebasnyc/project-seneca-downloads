@@ -7,10 +7,13 @@ from publish_download import gh,allowed_url,Redirect,REPO,MAX_BYTES
 def release_data(tag, draft_only):
     endpoint = f'repos/{REPO}/releases'
     if draft_only:
-        view = json.loads(gh('release', 'view', tag, '--json', 'databaseId,isDraft'))
+        view = json.loads(gh('release', 'view', tag, '--json', 'apiUrl,isDraft'))
         if view['isDraft'] is not True:
             raise ValueError('Expected an unpublished draft.')
-        return json.loads(gh('api', f"{endpoint}/{view['databaseId']}"))
+        release_id = view['apiUrl'].removeprefix(f'https://api.github.com/{endpoint}/')
+        if not re.fullmatch(r'[0-9]+', release_id):
+            raise ValueError('Unexpected draft release API address.')
+        return json.loads(gh('api', f'{endpoint}/{release_id}'))
     return json.loads(gh('api', f'{endpoint}/tags/{tag}'))
 
 
