@@ -6,17 +6,19 @@
 - Ask a question from the desktop companion or continue in Home.
 - Save class notes and captures, and bring difficult material back for review.
 
-## Download
+## Download Seneca 0.15.0
 
-**Seneca 0.15.0-beta.1** is a manual prerelease install. [Release notes and checksums](https://github.com/sebasnyc/project-seneca-downloads/releases/tag/v0.15.0-beta.1)
+[Latest release, notes, and checksums](https://github.com/sebasnyc/project-seneca-downloads/releases/latest)
 
 | Platform | Download |
 | --- | --- |
-| Windows x64 | [Installer](https://github.com/sebasnyc/project-seneca-downloads/releases/download/v0.15.0-beta.1/Seneca-0.15.0-beta.1-Windows-x64-Setup.exe) · [Portable ZIP](https://github.com/sebasnyc/project-seneca-downloads/releases/download/v0.15.0-beta.1/Seneca-0.15.0-beta.1-Windows-x64-Portable.zip) |
-| Mac with Apple Silicon | [Download for arm64](https://github.com/sebasnyc/project-seneca-downloads/releases/download/v0.15.0-beta.1/Seneca-0.15.0-beta.1-macOS-arm64.zip) |
-| Mac with Intel | [Download for x86_64](https://github.com/sebasnyc/project-seneca-downloads/releases/download/v0.15.0-beta.1/Seneca-0.15.0-beta.1-macOS-x86_64.zip) |
+| Windows x64 | [Installer](https://github.com/sebasnyc/project-seneca-downloads/releases/download/v0.15.0/Seneca-0.15.0-Windows-x64-Setup.exe) · [Portable ZIP](https://github.com/sebasnyc/project-seneca-downloads/releases/download/v0.15.0/Seneca-0.15.0-Windows-x64-Portable.zip) |
+| Mac with Apple Silicon | [Download for arm64](https://github.com/sebasnyc/project-seneca-downloads/releases/download/v0.15.0/Seneca-0.15.0-macOS-arm64.zip) |
+| Mac with Intel | [Download for x86_64](https://github.com/sebasnyc/project-seneca-downloads/releases/download/v0.15.0/Seneca-0.15.0-macOS-x86_64.zip) |
 
-[Latest stable release for Windows and Mac](https://github.com/sebasnyc/project-seneca-downloads/releases/latest) · [All releases](https://github.com/sebasnyc/project-seneca-downloads/releases)
+Installed copies can check for 0.15.0 in Settings → Updates. Windows installed copies can install the update there. On Mac, Seneca downloads and verifies the update for your processor, then you replace the app in Applications.
+
+[All releases](https://github.com/sebasnyc/project-seneca-downloads/releases) · [0.15.0 beta archive](https://github.com/sebasnyc/project-seneca-downloads/releases/tag/v0.15.0-beta.1)
 
 **Windows 11 x64.** Choose Setup.exe to install or the complete Portable.zip to run without installing.
 
