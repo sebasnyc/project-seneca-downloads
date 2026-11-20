@@ -57,9 +57,15 @@ def main():
         if digest.hexdigest() != expected: raise ValueError('Build archive checksum mismatch.')
         setup = f'Seneca-{version}-Windows-x64-Setup.exe'
         portable = f'Seneca-{version}-Windows-x64-Portable.zip'
+        compact = f'Seneca-{version}-Windows-x64-Portable.7z'
         names = [f'installer/output/{setup}',f'dist/{portable}','dist/SHA256SUMS.txt','dist/build-info.json']
         with zipfile.ZipFile(archive) as zipped:
-            if set(zipped.namelist()) != set(names): raise ValueError('Archive must contain only the four release files.')
+            compact_path = f'dist/{compact}'
+            archived = zipped.namelist()
+            if len(archived) != len(set(archived)) or set(archived) not in (set(names), {*names, compact_path}):
+                raise ValueError('Unexpected Windows release files.')
+            if compact_path in archived:
+                names.append(compact_path)
             if any(i.file_size > MAX_BYTES for i in zipped.infolist()): raise ValueError('Release file too large.')
             zipped.extractall(root)
         info = json.loads((root/'dist/build-info.json').read_text())
@@ -72,8 +78,11 @@ def main():
             sha,name = line.split()
             if name in checks or not re.fullmatch(r'[0-9a-f]{64}',sha): raise ValueError('Invalid checksum manifest.')
             checks[name] = sha
-        if set(checks) != {setup,portable}: raise ValueError('Unexpected checksum entries.')
-        for path in paths[:2]:
+        binaries = [p for p in paths if p.suffix in ('.exe', '.zip', '.7z')]
+        if set(checks) != {p.name for p in binaries}: raise ValueError('Unexpected checksum entries.')
+        if len(binaries) == 3 and info.get('compact_portable_bytes') != binaries[-1].stat().st_size:
+            raise ValueError('Compact portable archive size does not match build info.')
+        for path in binaries:
             with path.open('rb') as stream: digest = hashlib.file_digest(stream,'sha256').hexdigest()
             if digest != checks[path.name]: raise ValueError('Release file checksum mismatch.')
         notes = root/'release-notes.md'
